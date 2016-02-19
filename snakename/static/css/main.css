@@ -1,0 +1,115 @@
+@font-face {
+    src: local("Roboto"), url("../fonts/roboto/Roboto-Regular.woff") format("woff");
+    font-family: Roboto;
+}
+
+@font-face {
+    src: local("Roboto Medium"), url("../fonts/roboto/Roboto-Medium.woff") format("woff");
+    font-family: Roboto;
+    font-weight: 500;
+}
+
+body {
+    background-color: white;
+    background-image: url("../images/silver-scales.png");
+    color: black;
+    font-family: Roboto, sans-serif;
+    margin: 0 auto;
+    padding: 2em;
+    max-width: 40em;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    box-sizing: content-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font: inherit;
+    margin: 0;
+    outline: none;
+    padding: 0.4em;
+}
+
+button::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
+
+#new {
+    margin-bottom: 1.4em;
+    position: relative;
+}
+
+#new input {
+    border: none;
+    box-shadow: 0 1.5px 1.5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    font: inherit;
+    flex: 1;
+    outline: none;
+    padding: 0.6em;
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+}
+
+#new input:focus {
+    box-shadow: 0 1.5px 4px rgba(0, 0, 0, 0.4);
+}
+
+#new button {
+    background-image: url("../images/add.svg");
+    background-position: 0.7em center;
+    background-repeat: no-repeat;
+    background-size: 1em 1em;
+    color: black;
+    height: 1.6em;
+    margin-left: 0.4em;
+    opacity: 0.3;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    text-indent: -9999px;
+    transition: opacity 0.3s ease;
+    width: 1.6em;
+}
+
+#new button:focus, #new button:hover {
+    opacity: 0.8;
+}
+
+.suggestion {
+    align-items: center;
+    background-attachment: fixed;
+    background-color: #0f0f0f;
+    background-image: url("../images/black-scales.png");
+    border: 1px solid black;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    color: white;
+    color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    font-weight: 500;
+    margin: 0.2em 0;
+    padding: 0.4em;
+}
+
+.vote-button {
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 0.4em;
+}
+
+.vote-button .voted {
+    color: goldenrod;
+}
+
+.suggestion-name {
+    flex: 1;
+    overflow: hidden;
+    unicode-bidi: isolate;
+}
+
+.vote-count {
+    margin-right: 0.4em;
+}

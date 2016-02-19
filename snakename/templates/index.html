@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block stylesheets %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/main.css") }}" />
+{% endblock %}
+
+{% block body %}
+    <form id="new" method="POST" action="{{ url_for("suggest") }}">
+        <input type="text" name="name" value="" placeholder="A new snake name!" autofocus required />
+        <button>Suggest</button>
+    </form>
+
+    <form method="POST" action="{{ url_for("vote") }}">
+        {% for suggestion in suggestions %}
+            {% set votes = session.votes.get(suggestion.id|string, 0) %}
+            <div class="suggestion">
+                <button class="vote-button" name="vote" value="{{ suggestion.id }}" title="Vote ({{ votes }}/3)">
+                    <span class="voted">
+                    {%- if votes == 0 %}</span>{% endif %}★
+                    {%- if votes == 1 %}</span>{% endif %}★
+                    {%- if votes == 2 %}</span>{% endif %}★
+                    {%- if votes == 3 %}</span>{% endif %}
+                </button>
+                <span class="suggestion-name">{{ suggestion.name }}</span>
+                <span class="vote-count">{{ suggestion.vote_count }}</span>
+            </div>
+        {% endfor %}
+    </form>
+{% endblock %}
